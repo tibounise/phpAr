@@ -22,4 +22,6 @@ How to use it :
 		- Timestamp of the last modification
 		- The ID of the owner of the file
 		- The ID of the group of the file
-		- 
+		- The file mode
+		- The size of the file
+		- The file
