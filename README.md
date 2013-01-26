@@ -17,4 +17,4 @@ This will return an array with all the files inside the archive.
 This will return an object with a the informations and the content of the specified file.
 
 ## Licence
-phpAr is released under GNU GPL v3 licence
+phpAr is released under CeCILL-C license.
