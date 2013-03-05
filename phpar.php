@@ -3,8 +3,8 @@
 
 contact@tibounise.com
 
-This software is a computer program whose purpose is to [describe
-functionalities and technical features of your software].
+This software is a computer program whose purpose is to extract ar
+archives with PHP.
 
 This software is governed by the CeCILL-C license under French law and
 abiding by the rules of distribution of free software.  You can  use, 
