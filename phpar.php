@@ -74,14 +74,21 @@ class phpAr {
 	 */
 	public function listfiles() {
 		$list_files = array();
+		
 		fseek($this->fileHandler,8);
+		
 		while (ftell($this->fileHandler) < $this->filesize - 1) {
 			$list_files[] = trim(fread($this->fileHandler, 16));
 			fread($this->fileHandler, 32);
 			$size = trim(fread($this->fileHandler, 10));
 			fseek($this->fileHandler, 2 + ftell($this->fileHandler) + $size);
 		}
-		return $list_files;
+		
+		if (count($list_files) > 0) {
+			return $list_files;
+		} else {
+			return false;
+		}
 	}
 
 	/**
@@ -93,7 +100,9 @@ class phpAr {
 	 */
 	public function getfile($name) {
 		$file = new ArrayObject(array(),ArrayObject::STD_PROP_LIST);
+		
 		fseek($this->fileHandler,8);
+		
 		while (ftell($this->fileHandler) < $this->filesize-1) {
 			$filename = trim(fread($this->fileHandler, 16));
 			if ($filename == $name) {
@@ -110,6 +119,11 @@ class phpAr {
 				fseek($this->fileHandler, 2 + ftell($this->fileHandler) + $size);
 			}
 		}
-		return $file;
+
+		if (isset($file->timestamp)) {
+			return $file;
+		} else {
+			return false;
+		}
 	} 
 }
