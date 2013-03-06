@@ -38,7 +38,20 @@ knowledge of the CeCILL-C license and that you accept its terms. */
  * @version 1.1b
  */
 class phpAr {
+	/**
+	 * File pointer of the archive
+	 * 
+	 * @var filepointer File pointer of the archive
+	 * @access private
+	 */
 	private $fileHandler;
+
+	/**
+	 * Size of the archive
+	 * 
+	 * @var int Size of the archive
+	 * @access private
+	 */
 	private $filesize;
 
 	/**
