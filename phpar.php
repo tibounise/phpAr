@@ -35,7 +35,7 @@ knowledge of the CeCILL-C license and that you accept its terms. */
 /**
  * 
  * @author TiBounise <contact@tibounise.com>
- * @version 1.1b
+ * @version 1.2
  */
 class phpAr {
 	/**
@@ -63,9 +63,9 @@ class phpAr {
 	public function __construct($file) {
 		$this->fileHandler = fopen($file,'rb');
 		if (!$this->fileHandler) {
-			throw new Exception('The archive can\'t be opened');
+			throw new \Exception('The archive can\'t be opened');
 		} elseif (!preg_match('#^\!<arch>#',fread($this->fileHandler, 8))) {
-			throw new Exception('Invalid archive file');
+			throw new \Exception('Invalid archive file');
 		}
 		$this->filesize = filesize($file);
 	}
@@ -97,11 +97,7 @@ class phpAr {
 			fseek($this->fileHandler, 2 + ftell($this->fileHandler) + $size);
 		}
 		
-		if (count($list_files) > 0) {
-			return $list_files;
-		} else {
-			return false;
-		}
+		return $list_files;
 	}
 
 	/**
